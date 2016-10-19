@@ -1,5 +1,5 @@
-/* data from Preserving Jobs in Education
-https://dev.socrata.com/foundry/open.whitehouse.gov/d8mb-v5jp
+/* https://open.whitehouse.gov/ data from the
+   Climate Change Adaptation Task Force
 */
 
 var ourData = {};
@@ -8,19 +8,26 @@ window.onload = function educationJobs () {
 
   let url = 'https://open.whitehouse.gov/resource/d8mb-v5jp.json'
 
-
+  // over 27,000 hits with the following
   // $.get(url, function(data) {
   //   console.log(data);
   // });
 
   // we'll do the long version to prevent overload
-  $.ajax({
+  var jQueryPromise = $.ajax({
     dataType: "json",
     url: url,
     data: {
-      "$limit" : 100
+      "$limit" : 50
     }
-  }).done(function(data) {
-    console.log (data);
   })
+
+var realPromise = Promise.resolve(jQueryPromise);
+
+realPromise.then(function (response){
+  console.log('gotData', response);
+  createTable(response);
+}, function(err) {
+  console.log("err", err);
+})
 };
