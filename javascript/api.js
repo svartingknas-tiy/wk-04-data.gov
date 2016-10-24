@@ -1,7 +1,3 @@
-/* https://open.whitehouse.gov/ data from the
-   Climate Change Adaptation Task Force
-*/
-
 var ourData = {};
 
 window.onload = function educationJobs () {
