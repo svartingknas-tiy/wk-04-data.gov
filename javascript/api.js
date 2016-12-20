@@ -2,7 +2,7 @@ var ourData = {};
 
 window.onload = function educationJobs () {
 
-  let url = '//open.whitehouse.gov/resource/d8mb-v5jp.json'
+  let url = 'https://open.whitehouse.gov/resource/d8mb-v5jp.json'
 
   // over 27,000 hits with the following
   // $.get(url, function(data) {
